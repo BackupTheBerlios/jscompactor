@@ -1,0 +1,14 @@
+Revision history for Perl extension JavaScript::Squish.
+
+0.03  Wed Sep 29 04:06:42 2005
+	- Renamed to JavaScript::Squish
+    - Improved ability to run any method by itself
+    - Improved inteligence of routines to know about current state
+
+0.02  Wed Sep 28 09:00:13 2005
+	- released to CPAN
+
+0.01  Tue Sep 27 10:38:18 2005
+    - original version; created by h2xs 1.23 with options
+        -b 5.5.3 -Afn Data::JavaScript::Compactor
+
