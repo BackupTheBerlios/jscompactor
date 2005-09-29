@@ -7,4 +7,4 @@ t/002.t
 t/003.t
 lib/JavaScript/Squish.pm
 bin/js_compactor
-META.yml                                 Module meta-data (added by MakeMaker)
+META.yml
