@@ -220,7 +220,13 @@ Still looking for them. If you find some, let us know.
 
 =head1 SEE ALSO
 
-The order of steps to compact the file were initially based upon the "JavaScript Crunchinator" (http://www.brainjar.com).
+=over
+
+=item Latest releases, bugzilla, cvs repository, etc:
+
+https://developer.berlios.de/projects/jscompactor/
+
+=back
 
 =head1 AUTHOR
 
