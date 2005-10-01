@@ -690,18 +690,18 @@ sub join_all
         # we're going to be restoring the comments, so we have to make sure 
         # "//" comments are treated properly
         $this->restore_comments();
-        my $data = $this->data;
-        foreach my $line (split(/\r?\n/, $data))
+        my $newdata;
+        foreach my $line (split(/\r?\n/, $this->data))
         {
-            $data .= $line;
+            $newdata .= $line;
             if ($line =~ /\/\//) {
-                $data .= $this->eol_char();
+                $newdata .= $this->eol_char();
             } else {
-                $data .= " ";
+                $newdata .= " ";
             }
         }
-        $data =~ s/\ $//;
-        $this->data($data);
+        $newdata =~ s/\ $//;
+        $this->data($newdata);
 
     } else {
         my $data = $this->data;
@@ -762,18 +762,20 @@ sub remove_comments
     my $comments = $this->comments();
 
     my $data = $this->data;
+    my $exception_caught = 0;
     # replace each of the comments
     for (my $i=0; $i<@{$comments}; $i++)
     {
         my $comment = $comments->[$i];
         if (grep { $comment =~ /$_/ } @exceptions)
         {
+            $exception_caught++;
             $data =~ s/\0\0\_($i)\_\0\0/$comment/g;
         } else {
             $data =~ s/\0\0\_($i)\_\0\0//g;
         }
     }
-    $this->{_comments_extracted} = 0 if @exceptions;
+    $this->{_comments_extracted} = 0 if $exception_caught;
     $this->data($data);
 
     # restore strings if needed
