@@ -1,5 +1,8 @@
 Revision history for Perl extension JavaScript::Squish.
 
+0.04  Sat Oct  1 09:29:10 2005
+    - BUGFIX: #5219 - join_all() broken if comments are not fully removed
+
 0.03  Wed Sep 29 04:06:42 2005
 	- Renamed to JavaScript::Squish
     - Improved ability to run any method by itself

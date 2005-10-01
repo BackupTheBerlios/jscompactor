@@ -54,7 +54,7 @@ my $test_output = qq|var comment_in_string1="blah /* hehe */ //haha ";var commen
     text field";var test="asfd asfd";var x="blah"+'asdf'+tset+'xxasdf';var foo='bar';var test="xxx";var foo='bar';var test="xxx";var t='x';var asdf='qwer';alert("thisis"+'somemoretext');function blah(asdf){while(x=el[e++]){y++;}};var x;
 |;
 
-my $c = JavaScript::Squish->squish($test_data);
+#my $c = JavaScript::Squish->squish($test_data, remove_comments_exceptions => qr/asdfsadfasfsdfasdfsdfasfsafdasdf/i );
+my $c = JavaScript::Squish->squish($test_data, remove_comments_exceptions => qr/copyright/i );
+#my $c = JavaScript::Squish->squish($test_data);
 ok( $c, $test_output, "overall final result test" );
-
-
