@@ -275,7 +275,7 @@ sub print_top
 <TABLE BORDER="0" CELLPADDING="1" CELLSPACING="0" WIDTH="100%" BGCOLOR="#000000"><TR><TD>
 <TABLE BORDER="0" WIDTH="100%" BGCOLOR="#FFFFFF">
 <TR>
-<TD ALIGN="left"><H1>JavaScript::Squish</H1></TD>
+<TD ALIGN="left"><H1><A HREF="/"><FONT COLOR="#000000">JavaScript::Squish</FONT></A></H1></TD>
 <TD ALIGN="right"><A href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=4847" width="124px" height="32px" border="0" alt="BerliOS Developer Logo"></A></TD>
 </TR>
 
