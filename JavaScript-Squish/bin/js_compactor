@@ -104,6 +104,7 @@ sub load_options
         "src=s"                 => \$opts{'src'},
         "destination=s"         => \$opts{'dest'},
         "optimal"               => \$opts{'optimal'},
+        "help"                  => \$opts{'help'},
         "force"                 => \$opts{'force'},
         "comment_exception=s"   => $opts{'comment_exception'},
 
