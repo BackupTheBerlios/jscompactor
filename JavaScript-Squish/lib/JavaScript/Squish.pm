@@ -262,7 +262,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
 @EXPORT = qw( );
 
-$VERSION = '0.05';
+$VERSION = '0.06';
 
 sub squish
 {

@@ -1,6 +1,6 @@
 Revision history for Perl extension JavaScript::Squish.
 
-0.05  Sun Mar 16 07:14:42 2008
+0.06  Sun Mar 16 07:14:42 2008
     - BUGFIX: #5197 - Statements not terminated by semi-colon were handled
       wrong when join_all() called.
 

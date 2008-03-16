@@ -41,6 +41,10 @@ function blah (asdf) {
 var x;   
 // preceding line has ends in extra spaces up to
 // here ^
+var test_no_line_ending1 = "blah1"
+var test_no_line_ending2 = "blah2"
+if (x) { blah(); }
+var x = "asdf";
 
 JAVASCRIPT
 

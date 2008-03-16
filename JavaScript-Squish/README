@@ -47,22 +47,25 @@ BUGS
 There are a few bugs, which may rear their head in some minor situations.
 
 Statements not terminated by semi-colon.
-    Javascript statement that are NOT terminated by a semi-colon (";")
-    may break once compacted, as they will be put on the same line as
-    the following statement. In many cases, this wonâbe a problem,
-    but it could cause an issue. Ex.
+   These should be ok now - leaving a note here because this hasn't
+   been thoroughly tested (I don't have any javascript to test with
+   that meets this criteria).
 
-        i = 5.4
-        j = 42
+   This would affect statements like the following:
 
-    The above would become "i=5.4 j=42", and would generate an error
-    along the lines of "expected â before statement".
+       i = 5.4
+       j = 42
+
+   This used to become "i=5.4 j=42", and would generate an error along
+   the lines of "expected ';' before statement".
+
+   The linebreak should be retained now. Please let me know if you see
+   otherwise.
 
 Ambiguous operator precidence
-    Operator precidence may get screwed up in ambiguous statements. Eg.
-    "x = y + ++b;" will be compacted into "x=y+++b;", which means something
-    different.
-
+   Operator precidence may get screwed up in ambiguous statements. Eg.
+   "x = y + ++b;" will be compacted into "x=y+++b;", which means some-
+   thing different.
 
 SEE ALSO
 
