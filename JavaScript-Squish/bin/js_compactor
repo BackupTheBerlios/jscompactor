@@ -83,7 +83,7 @@ sub usage
     [--opt]  (do max squishing)
 
     [--comment_exception=<copyright>] (may specified multiple times)
-    [--remove_coments]              (can negate with --no_...)
+    [--remove_comments]             (can negate with --no_...)
     [--replace_white_space]         (can negate with --no_...)
     [--remove_blank_lines]          (can negate with --no_...)
     [--combine_concats]             (can negate with --no_...)
@@ -189,13 +189,13 @@ js_compactor
 [--dest=destination_file]
 [--opt]
 [--comment_exception=text]
-[--remove_coments]
+[--remove_comments]
 [--replace_white_space]
 [--remove_blank_lines]
 [--combine_concats]
 [--join_all]
 [--replace_extra_whitespace]
-[--no_remove_coments]
+[--no_remove_comments]
 [--no_replace_white_space]
 [--no_remove_blank_lines]
 [--no_combine_concats]
@@ -206,7 +206,7 @@ js_compactor
 
 =head1 DESCRIPTION
 
-The "--src" option is requied.
+The "--src" option is required.
 
 Default usage is as though you specified "--opt", for optimal settings. Setting any of the specific settings will override the default "--opt" behavior, and rules will be applied one by one. You may also specify "--opt" and then disable specific features with a "--no_option_name" style option.
 
@@ -226,13 +226,13 @@ Force overwriting of output file if it exists.
 
 =item B<--opt>
 
-Same as B<--remove_coments --replace_white_space --remove_blank_lines --combine_concats --join_all --replace_extra_whitespace>
+Same as B<--remove_comments --replace_white_space --remove_blank_lines --combine_concats --join_all --replace_extra_whitespace>
 
 =item B<--comment_exception=text_to_match>
 
 Comments matching the provided text will NOT be removed. The primary purpose for this is to retain copyright notices. Eg.
 
-    js_compator --comment_exception=copyright -src=somefile
+    js_compactor --comment_exception=copyright -src=somefile
 
 This option may be specified multiple times. Any comment matching any of the provided strings will then be retained.
 
