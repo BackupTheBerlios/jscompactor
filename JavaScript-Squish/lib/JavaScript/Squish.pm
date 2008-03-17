@@ -355,7 +355,8 @@ sub data
     my $this = shift;
     if ($_[0]) {
         my $data = (ref($_[0]) eq 'SCALAR') ? ${$_[0]} : $_[0];
-        $this->{data} = $_[0];
+        $this->{data} = $data;
+
     } else {
         return $this->{data};
     }
