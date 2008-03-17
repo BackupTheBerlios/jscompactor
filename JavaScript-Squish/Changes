@@ -1,6 +1,6 @@
 Revision history for Perl extension JavaScript::Squish.
 
-0.06  Mon Mar 17 03:08:21 2008
+0.07  Mon Mar 17 03:08:21 2008
     - BUGFIX: #7457 and #12708 - bare regular expressions need treated as
       strings (don't squish contents).
 
