@@ -232,6 +232,13 @@ Still looking for them. If you find some, let us know.
 
 https://developer.berlios.de/projects/jscompactor/
 
+=item Simlar projects:
+
+    http://crockford.com/javascript/jsmin
+    http://search.cpan.org/%7Epmichaux/JavaScript-Minifier/lib/JavaScript/Minifier.pm
+    http://dojotoolkit.org/docs/shrinksafe
+    http://dean.edwards.name/packer/
+
 =back
 
 =head1 AUTHOR
@@ -262,7 +269,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
 @EXPORT = qw( );
 
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 sub squish
 {
@@ -470,8 +477,9 @@ sub extract_strings_and_comments
 
     my ($escaped, $quoteChar, $inQuote);
 
+    my $lastnws = ''; # last non-whitespace character
     my $literal = ""; # literal strings we're building
-    my $t = ""; # replacement text
+    my $t = "";       # replacement text
 
     my @lines = split(/\r?\n/, $this->data); # dos or unix... output is unix
     # step through each line
@@ -485,15 +493,8 @@ sub extract_strings_and_comments
             # look for start of string (if not in one)
             if (! $inQuote)
             {
-                if ($c eq '"' || $c eq "'")
-                {
-                    $inQuote = 1;
-                    $escaped = 0;
-                    $quoteChar = $c;
-                    $t .= $c;
-                    $literal = '';
-
-                } elsif ($c2 eq "//") {
+                # double-slash comments
+                if ($c2 eq "//") {
                     my $comment = substr($lines[$i],$j);
                     my $key_num = scalar(@{$comments});
                     $t .= "\0\0".'_'.$key_num.'_'."\0\0";
@@ -501,6 +502,7 @@ sub extract_strings_and_comments
                     push(@{$comments}, $comment);
                     next LINE;
 
+                # slash-star comments
                 } elsif ($c2 eq "/*") {
                     my $comment = "/*";
                     my $comstart = $j+2;
@@ -547,8 +549,22 @@ sub extract_strings_and_comments
                         push(@{$comments}, $comment);
                         next LINE_CHAR;
                     }
+
+                # standard quoted strings, and bare regex's
+                # "/" is considered division if it's preceeded by: )._$\ or alphanum
+                } elsif ( $c eq '"' || $c eq "'" ||
+                          ($c eq '/' && $lastnws !~ /[\)\.a-zA-Z0-9_\$\\]/) ) {
+                    $inQuote = 1;
+                    $escaped = 0;
+                    $quoteChar = $c;
+                    $t .= $c;
+                    $literal = '';
+                    $lastnws = $c unless $c =~ /\s/;
+
+                # standard code
                 } else {
                     $t .= $c;
+                    $lastnws = $c unless $c =~ /\s/;
                 }
 
             # else we're in a quote
@@ -560,13 +576,16 @@ sub extract_strings_and_comments
                     $t .= "\0\0".$key_num."\0\0";
                     $t .= $c;
                     push(@{$strings}, $literal);
+                    $lastnws = $c unless $c =~ /\s/;
 
                 } elsif ($c eq "\\" && !$escaped) {
                     $escaped = 1;
                     $literal .= $c;
+                    $lastnws = $c unless $c =~ /\s/;
                 } else {
                     $escaped = 0;
                     $literal .= $c;
+                    $lastnws = $c unless $c =~ /\s/;
                 }
             }
         }

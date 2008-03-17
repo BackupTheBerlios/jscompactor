@@ -72,6 +72,12 @@ SEE ALSO
 Latest releases, bugzilla, cvs repository, etc:
     https://developer.berlios.de/projects/jscompactor/
 
+Simlar projects:
+    http://crockford.com/javascript/jsmin
+    http://search.cpan.org/%7Epmichaux/JavaScript-Minifier/lib/JavaScript/Minifier.pm
+    http://dojotoolkit.org/docs/shrinksafe
+    http://dean.edwards.name/packer/
+
 
 AUTHOR
 

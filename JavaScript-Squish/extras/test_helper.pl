@@ -46,6 +46,17 @@ var test_no_line_ending2 = "blah2"
 if (x) { blah(); }
 var x = "asdf";
 
+// these should be treated as division
+var x = 10 // see if this works
+    / 2;
+var x = 10 /* see if this works */ / 2;
+
+// this should retain 4 spaces
+var x = t.split(/    /);
+// this should retain the newlines
+var x = t.split(/ b l
+ a h /);
+
 JAVASCRIPT
 
 print $test_data;

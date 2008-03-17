@@ -1,5 +1,9 @@
 Revision history for Perl extension JavaScript::Squish.
 
+0.06  Mon Mar 17 03:08:21 2008
+    - BUGFIX: #7457 and #12708 - bare regular expressions need treated as
+      strings (don't squish contents).
+
 0.06  Sun Mar 16 07:14:42 2008
     - BUGFIX: #5197 - Statements not terminated by semi-colon were handled
       wrong when join_all() called.
