@@ -7,6 +7,7 @@
 use strict;
 use CGI qw(:standard);
 use lib qw(/home/users/unrtst/lib/JavaScript-Squish/lib);
+use lib qw(/home/groups/jscompactor/cgi-bin/lib);
 use JavaScript::Squish;
 
 &main;
